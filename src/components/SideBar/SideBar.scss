@@ -37,6 +37,12 @@
       &::before {
         background-color: $hoverColor;
       }
+
+      @include onPhone {
+        &::before {
+          background: $whiteColor;
+        }
+      }
     }
 
     &--passed {
@@ -70,10 +76,6 @@
 
     transition: border-color 0.3s, background-color 0.3s, color 0.3s;
 
-    @include onPhone {
-      background-color: $whiteColor;
-    }
-
     &--text {
       transform: translateY(35%) translateX(0%);
     }
@@ -83,14 +85,14 @@
       color: $whiteColor;
 
       @include onPhone {
-        background-color: $whiteColor;
+        background-color: $hoverColor;
         color: $hoverColor;
       }
     }
 
     &--passed {
       color: $grayColor;
-      border-color: $grayColor;
+      background-color: $grayColor;
     }
   }
 }

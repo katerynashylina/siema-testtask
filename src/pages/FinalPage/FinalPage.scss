@@ -17,5 +17,9 @@
 
   &__earned {
     font-size: 56px;
+    
+    @include onPhone {
+      text-align: center;
+    }
   }
 }
