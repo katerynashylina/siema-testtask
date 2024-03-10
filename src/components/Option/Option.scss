@@ -1,0 +1,85 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.option {  
+  height: 56px;
+  min-width: 348px;
+  position: relative;
+  padding: 12px;
+  margin: 4px;
+  background: $grayColor;
+  clip-path: polygon(25px 0px, calc(100% - 25px) 0px, 100% 50%, calc(100% - 25px) 100%, 25px 100%, 0px 50%);
+
+  transition: background-color 0.3s;
+
+  &:before {
+    position: absolute;
+    content: '';
+    height: calc(100% - 4px);
+    width: calc(100% - 4px);
+    left: 2px;
+    top: 2px;
+    clip-path: polygon(23.5px 0px, calc(100% - 23.5px) 0px, 100% 50%, calc(100% - 23.5px) 100%, 23.5px 100%, 0px 50%);
+    z-index: -1;
+  }
+
+  @include onPhone {
+    min-width: 258px;
+  }
+
+  @include onTablet {
+    min-width: 308px;
+  }
+
+  @media (max-width: 1120px) and (min-width: 1024px) {
+    min-width: 308px;
+  }
+
+  &:hover {
+    cursor: pointer;
+    background: $inactiveColor;
+  }
+
+  &--correct {
+    background-color: #47d867;
+  }
+
+  &--wrong {
+    background: #ec6259;
+  }
+
+  &__info {
+    display: flex;
+    gap: 8px;
+    transform: translateY(60%) translateX(15px);
+  }
+
+  &__border {
+    &::before {
+      background: $whiteColor;
+    }
+
+    &--correct {
+      &::before {
+        background: #e6faea;
+      }
+    }
+
+    &--wrong {
+      &::before {
+        background: #fdeeed;
+      }
+    }
+  }
+
+  &__letter {
+    color: $pressedColor;
+    font-weight: 600;
+    z-index: 2;
+  }
+
+  &__text {
+    color: $hoverColor;
+    z-index: 2;
+  }
+}

@@ -1,0 +1,21 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.home {
+  &__container {
+    background: linear-gradient(to bottom right, $whiteColor 50%, $lightBlueColor 50%);
+
+    @include onPhone {
+      background: linear-gradient(to bottom right, $whiteColor 50%, #fff3eb 50%);
+    }
+  }
+
+  &__title {
+    font-size: 56px;
+
+    @include onPhone {
+      font-size: 48px;
+      text-align: center;
+    }
+  }
+}

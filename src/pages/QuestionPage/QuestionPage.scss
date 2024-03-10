@@ -1,0 +1,117 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.question-page {
+  display: flex;
+  
+  &__container {
+    background-color: $lightGrayColor;
+    box-sizing: border-box;
+    min-height: 100vh;
+    padding-block: 70px;
+    display: flex;
+    flex-direction: column;
+    flex: 3;
+    
+    @include onPhone {
+      align-items: center;
+      padding: 20px;
+
+      &--hidden {
+        display: none;
+      }
+    }
+
+    @media (max-width: 731px) and (min-width: 599px) {
+      align-items: center;
+
+      &--hidden {
+        display: none;
+      }
+    }
+
+    @include onDesktop {
+      padding-left: 50px;
+    }
+    
+    @include onTablet {
+      padding: 35px;
+    }
+  }
+
+  &__title {
+    @include onPhone {
+      text-align: center;
+      margin-bottom: 150px;
+    }
+
+    @include onTablet {
+      text-align: center;
+      margin-bottom: 150px;
+    }
+
+    @include onDesktop {
+      width: 620px;
+      margin-bottom: 350px;
+    }
+  }
+
+  &__answers {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    @include onDesktop {
+      width: calc(390px * 2 + 30px);
+    }
+
+    @include onPhone {
+      flex-direction: column;
+    }
+
+    @include onTablet {
+      flex-direction: column;
+    }
+  }
+
+  &__side {
+    flex: 1;
+
+    @include onTablet {
+      padding: 35px;
+    }
+
+    @include onPhone {
+      &--hidden {
+        display: none;
+      }
+    }
+
+    @media (max-width: 731px) and (min-width: 599px) {
+      &--hidden {
+        display: none;
+      }
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-bottom: 30px;
+
+    @include onTablet-Desktop {
+      display: none;
+    }
+
+    @media (max-width: 731px) and (min-width: 599px) {
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+    }
+  }
+
+  &__icon {
+    height: 22px;
+  }
+}

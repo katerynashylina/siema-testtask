@@ -1,0 +1,21 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.final {
+  &__container {
+    background-color: $lightGrayColor;
+  }
+
+  &__score {
+    color: #88888c;
+    margin-bottom: 6px;
+
+    @include onPhone {
+      text-align: center;
+    }
+  }
+
+  &__earned {
+    font-size: 56px;
+  }
+}

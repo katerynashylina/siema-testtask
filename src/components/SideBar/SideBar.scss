@@ -1,0 +1,96 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.side {
+  min-height: 100vh;
+
+  @include onDesktop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @include onPhone {
+    padding: 20px;
+    padding-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: $lightGrayColor;
+    overflow-y: hidden;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-block: 20px;
+    gap: 7px;
+  }
+
+  &__border {
+    &::before {
+      background: $whiteColor;
+    }
+
+    &--current {
+      &::before {
+        background-color: $hoverColor;
+      }
+    }
+
+    &--passed {
+      &::before {
+        border-color: $grayColor;
+      }
+    }
+  }
+
+  &__element {
+    height: 40px;
+    width: 240px;
+    position: relative;
+    padding: 12px;
+    margin: 4px;
+    font-weight: bold;
+    text-align: center;
+    background: $grayColor;
+    clip-path: polygon(25px 0px, calc(100% - 25px) 0px, 100% 50%, calc(100% - 25px) 100%, 25px 100%, 0px 50%);
+
+    &:before {
+      position: absolute;
+      content: '';
+      height: calc(100% - 4px);
+      width: calc(100% - 4px);
+      left: 2px;
+      top: 2px;
+      clip-path: polygon(23.5px 0px, calc(100% - 23.5px) 0px, 100% 50%, calc(100% - 23.5px) 100%, 23.5px 100%, 0px 50%);
+      z-index: -1;
+    }
+
+    transition: border-color 0.3s, background-color 0.3s, color 0.3s;
+
+    @include onPhone {
+      background-color: $whiteColor;
+    }
+
+    &--text {
+      transform: translateY(35%) translateX(0%);
+    }
+
+    &--current {
+      background-color: $hoverColor;
+      color: $whiteColor;
+
+      @include onPhone {
+        background-color: $whiteColor;
+        color: $hoverColor;
+      }
+    }
+
+    &--passed {
+      color: $grayColor;
+      border-color: $grayColor;
+    }
+  }
+}

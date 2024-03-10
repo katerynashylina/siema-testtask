@@ -1,0 +1,30 @@
+@import '../../styles/variables.scss';
+
+.button {
+  width: 296px;
+  height: 64px;
+  font-family: "Inter", sans-serif;
+  background-color: $inactiveColor;
+  border: none;
+  border-radius: 15px;
+
+  transition: background-color 0.3s;
+  
+  & p{
+    color: $whiteColor;
+    font-weight: 600;
+  }
+
+  &:hover {
+    cursor: pointer;
+    background-color: $hoverColor;
+  }
+
+  &:focus {
+    background-color: $pressedColor;
+  }
+
+  &:active {
+    background-color: $pressedColor;
+  }
+}

@@ -1,0 +1,41 @@
+@import './styles/mixins.scss';
+@import './styles/variables.scss';
+
+.page {
+  font-family: "Inter", sans-serif;
+  min-height: 100vh;
+  
+  &__wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+
+    @include onPhone {
+      flex-direction: column;
+    }
+  }
+
+  &__right {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+
+    @include onPhone {
+      align-items: center;
+    }
+  }
+
+  &__image {
+    height: 350px;
+
+    @include onPhone {
+      height: 196px;
+    }
+
+    @include onTablet {
+      height: 196px;
+    }
+  }
+}
