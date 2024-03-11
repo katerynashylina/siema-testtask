@@ -11,7 +11,7 @@ export const Button: React.FC<Props> = ({ onClick, text }) => {
       className="button"
       onClick={onClick}
     >
-      <p>{text}</p>
+      {text}
     </button>
   );
 }

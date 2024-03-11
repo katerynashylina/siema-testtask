@@ -28,14 +28,16 @@ export const SideBar: React.FC<Props> = ({ isMenuOpened, setIsMenuOpened }) => {
       <div className="side__wrapper">
         {moneyArray.map((money, index) => {
           const reversedIndex = moneyArray.length - 1 - index;
+          const currentElement = reversedIndex === currentQuestionIndex;
+          const passedElement = currentQuestionIndex > reversedIndex;
 
           return (
             <div 
               className={classNames("side__element side__border", {
-                "side__element--current": reversedIndex === currentQuestionIndex,
-                "side__border--current": reversedIndex === currentQuestionIndex,
-                "side__element--passed": currentQuestionIndex > reversedIndex,
-                "side__border--passed": currentQuestionIndex > reversedIndex,
+                "side__element--current": currentElement,
+                "side__border--current": currentElement,
+                "side__element--passed": passedElement,
+                "side__border--passed": passedElement,
               })}
               key={money}
             >

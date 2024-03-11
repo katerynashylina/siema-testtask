@@ -19,13 +19,16 @@ export const Option: React.FC<Props> = ({ answer, onClick, index }) => {
     }
   };
 
+  const correctAnswer = clicked && answer.isCorrect;
+  const wrongAnswer = clicked && answer.isCorrect;
+
   return (
     <div
       className={classNames("option option__border", {
-        "option--correct": clicked && answer.isCorrect,
-        "option__border--correct": clicked && answer.isCorrect,
-        "option--wrong": clicked && !answer.isCorrect,
-        "option__border--wrong": clicked && !answer.isCorrect,
+        "option--correct": correctAnswer,
+        "option__border--correct": correctAnswer,
+        "option--wrong": wrongAnswer,
+        "option__border--wrong": wrongAnswer,
       })}
       onClick={() => handleClick(answer.isCorrect)}
     >
